@@ -58,11 +58,12 @@ resource "null_resource" "ansible" {
       connect_timeout_seconds              = 60
     }
   }
-  depends_on = [local_file.terraform_source_state]
+  #depends_on = [local_file.terraform_source_state]
 }
 
 variable "ssh_private_key" {
-  type = list(string)
+  type    = string
+  default = ""
 }
 
 
