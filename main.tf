@@ -62,6 +62,7 @@ resource "null_resource" "ansible" {
 }
 
 variable "ssh_private_key" {
+  type = list(string)
 }
 
 
