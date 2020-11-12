@@ -33,7 +33,7 @@ provider "ibm" {
 resource "null_resource" "ansible" {
   connection {
     # bastion_host = data.ibm_schematics_output.vpc.output_values["bastion_host_ip_address"]
-    bastion_host = 158.177.8.160
+    bastion_host = "158.177.8.160"
     host         = "0.0.0.0"
     #private_key = "${file("~/.ssh/ansible")}"
     private_key = var.ssh_private_key
@@ -50,8 +50,8 @@ resource "null_resource" "ansible" {
         roles_path = ["${path.module}/ansible-data/roles"]
       }
       # inventory_file = "${path.module}/terraform_inv.py"
-      hosts = [172.16.2.4]
-      verbose        = true
+      hosts   = ["172.16.2.4"]
+      verbose = true
     }
     ansible_ssh_settings {
       insecure_no_strict_host_key_checking = true
@@ -69,10 +69,10 @@ variable "ssh_private_key" {
 #   description = "IBM Cloud API key when run standalone"
 # }
 
-variable "workspace_id" {
-  description = "Id of the source Schematics Workspace for target VSIs"
-  default     = "ssh_bastion-host-0353ce37-3748-4c"
-}
+# variable "workspace_id" {
+#   description = "Id of the source Schematics Workspace for target VSIs"
+#   default     = "ssh_bastion-host-0353ce37-3748-4c"
+# }
 
 
 
