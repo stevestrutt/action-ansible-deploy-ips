@@ -33,7 +33,7 @@ provider "ibm" {
 resource "null_resource" "ansible" {
   connection {
     # bastion_host = data.ibm_schematics_output.vpc.output_values["bastion_host_ip_address"]
-    bastion_host = "158.177.8.160"
+    bastion_host = "169.48.153.216"
     host         = "0.0.0.0"
     #private_key = "${file("~/.ssh/ansible")}"
     private_key = var.ssh_private_key
